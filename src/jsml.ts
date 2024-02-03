@@ -4,7 +4,7 @@ import addProps from "./add-props.js";
 
 
 export type JSML = {
-    [key in keyof HTMLElementTagNameMap]: (props?: any, content?: any) => HTMLElement;
+    [key in keyof HTMLElementTagNameMap]: (props?: any, content?: any) => HTMLElementTagNameMap[key];
 };
 
 export type Content = string | Node | ArrayLike<HTMLElement | Node | string> | HTMLElement[] | HTMLCollection | undefined;

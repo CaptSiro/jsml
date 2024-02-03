@@ -20,10 +20,13 @@ export default function addProps(element: HTMLElement, props: Props): void {
             continue;
         }
 
+        if (typeof props[key] === "boolean") {
+            element.toggleAttribute(key.substring(Number(key[0] === "\\")), props[key]);
+            return;
+        }
+
         element.setAttribute(
-            camelToKebab(key[0] === "\\"
-                ? key.substring(1)
-                : key),
+            camelToKebab(key.substring(Number(key[0] === "\\"))),
             String(props[key])
         );
     }
